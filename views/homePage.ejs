@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/fonts/fonts.css">
+</head>
+<body>
+    <% if(userName) { %>
+        <h1>Welcome <%= userName %></h1>
+    <% } else { %>
+    <div class="container-body">
+        <div class="logo-messenger">MESSENGER</div>
+        <div class="container-alert">
+            <div class="container-alert-left">
+                <h1>Привет гость</h1>
+                <h2>Чтобы начать общение, вам нужно <a href="" class="subtext">войти</a> или <a href="" class="subtext">зарегистрироваться</a></h2>
+                <div class="container-alert-btn">
+                    <a href="" class="btn-alert">Войти</a>
+                    <a href="" class="btn-alert">Зарегистрироваться</a>
+                </div>
+            </div>
+            <div class="slesh"></div>
+            <div class="container-alert-right">
+                <h2>Войти через :</h2>
+                <div class="btn-social">
+                    <a href=""><img class="btn-social-vk" src="/images/icon-social/vk.png" alt="vk"></a>
+                    <a href=""><img class="btn-social-google" src="/images/icon-social/google.png" alt="google"></a>
+                    <a href=""><img class="btn-social-yandex" src="/images/icon-social/yandex.png" alt="yandex"></a>
+                    <a href=""><img class="btn-social-github" src="/images/icon-social/github.png" alt="github"></a>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <% } %>        
+</body>
+</html>

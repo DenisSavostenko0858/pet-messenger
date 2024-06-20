@@ -1,0 +1,87 @@
+body{
+    background-color: #E0CCBE;
+}
+.container-alert{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #747264;
+    color: #EEEDEB;
+    font-size: 14px;
+    width: 800px;
+    height: 300px;
+    border-radius: 15px;
+    padding: 10px;
+}
+.container-alert-left{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+.container-alert-right{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-left: 30px;
+}
+.slesh{
+    background-color: white;
+    width: 2px;
+    height: 280px;
+}
+.container-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    flex-direction: column;
+}
+.logo-messenger{
+    font-size: 46px;
+    color: #747264;
+    margin-bottom: 20px;
+}
+.container-alert-btn{
+    display: flex;
+    flex-direction:  row;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+.btn-alert{
+    display: flex;
+    background-color: #3C3633;
+    color: #EEEDEB;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.btn-alert:hover{
+    background-color: #E0CCBE;
+    color: #747264;
+    transition: 0.3s;
+}
+.subtext{
+    color: #3C3633;
+    text-decoration: none;
+}
+.btn-social-vk{
+    width: 64px;
+}
+.btn-social-yandex{
+    width: 64px;
+}
+.btn-social-google{
+    width: 64px;
+}
+.btn-social-github{
+    width: 64px;
+}
+.btn-social{
+    width: 150px;
+}
