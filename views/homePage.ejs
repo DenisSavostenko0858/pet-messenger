@@ -9,17 +9,17 @@
 </head>
 <body>
     <% if(userName) { %>
-        <h1>Welcome <%= userName %></h1>
+        <h1>Welcome <%= userName %> <a href="/logout"> выйти</a></h1>
     <% } else { %>
     <div class="container-body">
-        <div class="logo-messenger">MESSENGER</div>
+        <div><a href="/" class="logo-messenger">MESSENGER</a></div>
         <div class="container-alert">
             <div class="container-alert-left">
-                <h1>Привет гость</h1>
-                <h2>Чтобы начать общение, вам нужно <a href="" class="subtext">войти</a> или <a href="" class="subtext">зарегистрироваться</a></h2>
+                <h1>Привет гость 👋</h1>
+                <h2>Чтобы начать общение, вам нужно <a href="" class="subtext">войти</a> или <a href="/register" class="subtext">зарегистрироваться</a></h2>
                 <div class="container-alert-btn">
-                    <a href="" class="btn-alert">Войти</a>
-                    <a href="" class="btn-alert">Зарегистрироваться</a>
+                    <a href="/login" class="btn-alert">Войти</a>
+                    <a href="/register" class="btn-alert">Зарегистрироваться</a>
                 </div>
             </div>
             <div class="slesh"></div>

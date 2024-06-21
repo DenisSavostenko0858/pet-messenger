@@ -8,9 +8,12 @@ const bodyParser = require('body-parser');
 const req = require('express/lib/request');
 const router = require('./router/index_router');
 const PORT = 3000;
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+const { sequelize } = require("./models/database_controller");
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,8 +23,8 @@ app.use(session({
     saveUninitialized: true
   }));
 app.use(router);
-app.listen(PORT, function(){
-    // await sequelize.sync();
-    // console.log('База данных успешно синхронизирована');
+app.listen(PORT, async function(){
+    await sequelize.sync();
+    console.log('База данных успешно синхронизирована');
     console.log('Сервер запущен http://localhost:'+ PORT);
 });

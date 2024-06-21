@@ -1,5 +1,8 @@
 body{
     background-color: #E0CCBE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container-alert{
     display: flex;
@@ -11,6 +14,7 @@ body{
     font-size: 14px;
     width: 800px;
     height: 300px;
+    margin-top: 20px;
     border-radius: 15px;
     padding: 10px;
 }
@@ -18,17 +22,22 @@ body{
     display: flex;
     flex-direction: column;
     width: 450px;
+    margin-right: 10px;
 }
 .container-alert-right{
     display: flex;
+    align-items: flex-start;
+    height: 100%;
     flex-direction: column;
-    width: 250px;
+    width: 200px;
     margin-left: 30px;
+    margin-top: 40px;
 }
 .slesh{
     background-color: white;
     width: 2px;
-    height: 280px;
+    height: 80%;
+    margin: 10px;
 }
 .container-body{
     display: flex;
@@ -41,6 +50,7 @@ body{
     font-size: 46px;
     color: #747264;
     margin-bottom: 20px;
+    text-decoration: none;
 }
 .container-alert-btn{
     display: flex;
@@ -72,16 +82,183 @@ body{
 }
 .btn-social-vk{
     width: 64px;
+    transition: 0.2s;
+}
+.btn-social-vk:hover{
+    opacity: 60%;
+    transition: 0.2s;
 }
 .btn-social-yandex{
     width: 64px;
+    transition: 0.2s;
+}
+.btn-social-yandex:hover{
+    opacity: 60%;
+    transition: 0.2s;
 }
 .btn-social-google{
     width: 64px;
+    transition: 0.2s;
+}
+.btn-social-google:hover{
+    opacity: 60%;
+    transition: 0.2s;
 }
 .btn-social-github{
     width: 64px;
+    transition: 0.2s;
+}
+.btn-social-github:hover{
+    opacity: 60%;
+    transition: 0.2s;
 }
 .btn-social{
     width: 150px;
+}
+// REGISTER PAGE
+.container-alert-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #747264;
+    color: #EEEDEB;
+    font-size: 14px;
+    width: 800px;
+    height: 500px;
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 10px;
+}
+.form-register{
+    display: flex;
+    flex-direction: row;
+}
+.btn-form{
+    display: flex;
+    background-color: #3C3633;
+    color: #EEEDEB;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    border: none;
+    transition: 0.2s;
+}
+
+.btn-form:hover{
+    background-color: #E0CCBE;
+    color: #747264;
+    transition: 0.3s;
+}
+.container-right-form{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    background-color: #3C3633;
+    border-radius: 15px;
+    padding: 10px;
+}
+.container-left-form{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    background-color: #3C3633;
+    border-radius: 15px;
+    padding: 10px;
+}
+.input-form{
+    border-radius: 15px;
+    font-size: 16px;
+    width: 180px;
+    padding-left: 10px;
+    border: none;
+    background-color: #E0CCBE;
+    font-family: 'Montserrat';
+    color: #3C3633;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+.container-form-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// LOGIN PAGE
+.container-alert-form-login{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #747264;
+    color: #EEEDEB;
+    font-size: 14px;
+    width: 800px;
+    height: 350px;
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 10px;
+}
+.container-input-form-login{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+    margin-top: 10px;
+    background-color: #3C3633;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+.form-login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.btn-form-login{
+    display: flex;
+    background-color: #3C3633;
+    color: #EEEDEB;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    border: none;
+    transition: 0.2s;
+}
+.btn-form-login:hover{
+    background-color: #E0CCBE;
+    color: #747264;
+    transition: 0.3s;
+}
+// error message
+.error-message{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 400px;
+    border: 2px solid black;
+    margin-top: 200px;
+}
+.error-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error-text{
+    display: flex;
+    margin-top: -15px;
+    justify-content: center;
+    align-items: center;
 }
