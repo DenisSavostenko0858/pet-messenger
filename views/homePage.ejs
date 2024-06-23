@@ -9,7 +9,16 @@
 </head>
 <body>
     <% if(userName) { %>
-        <h1>Welcome <%= userName %> <a href="/logout"> выйти</a></h1>
+        <div class="container-body-main">
+            <%- include('./partials/header.ejs') -%>
+            <div class="container-body-row">
+                <%- include('./partials/leftBar.ejs') -%>
+                <div class="container-body-chat">
+                    <h1>Welcome <%= userName %> <a href="/logout"> выйти</a></h1>
+                </div>
+                <%- include('./partials/rightBar.ejs') -%>
+            </div>
+        </div>
     <% } else { %>
     <div class="container-body">
         <div><a href="/" class="logo-messenger">MESSENGER</a></div>

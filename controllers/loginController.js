@@ -35,6 +35,7 @@ exports.loginUser = (req, res, next) => {
             // Session
             req.session.userEmail = User.userEmail;
             req.session.userName = User.userName;
+            req.session.userPhone = User.userPhone;
             // req.session.userRole = User.userRole;
             // req.session.userPhone = User.userPhone;
             console.log("Получили данные от пользователя " + User.userName + " с его почты " + User.userEmail + " и ролью " + User.userRole);
