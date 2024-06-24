@@ -14,7 +14,7 @@
             <div class="container-body-row">
                 <%- include('./partials/leftBar.ejs') -%>
                 <div class="container-body-chat">
-                    <h1>Welcome <%= userName %> <a href="/logout"> выйти</a></h1>
+                    <%- include('./partials/blocks/welcome.ejs') -%>
                 </div>
                 <%- include('./partials/rightBar.ejs') -%>
             </div>

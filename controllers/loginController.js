@@ -26,18 +26,22 @@ exports.loginUser = (req, res, next) => {
             const email = data.email;
             const role = data.role;
             const telephone = data.telephone;
+            const age = data.age;
+            const surname = data.usersurname;
             const User = {
                 userName: name,
                 userEmail: email,
                 userRole: role,
                 userPhone: telephone,
+                userAge: age,
+                userSurname: surname
             }
             // Session
             req.session.userEmail = User.userEmail;
             req.session.userName = User.userName;
             req.session.userPhone = User.userPhone;
-            // req.session.userRole = User.userRole;
-            // req.session.userPhone = User.userPhone;
+            req.session.userAge = User.userAge;
+            req.session.userSurname = User.userSurname;
             console.log("Получили данные от пользователя " + User.userName + " с его почты " + User.userEmail + " и ролью " + User.userRole);
             console.log(req.session.userEmail + " Сессия создана");
             req.session.save((err) => {

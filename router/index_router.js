@@ -13,4 +13,8 @@ rout.get('/login', renderPageController.renderLoginPage);
 rout.post('/login', loginController.loginUser);
 rout.get('/logout', loginController.logout);
 
+rout.get('/friend', renderPageController.renderFriendsPage);
+
+rout.get('/profile', renderPageController.renderProfilePage);
+
 module.exports = rout;
