@@ -484,3 +484,44 @@ body{
     color: #E0CCBE;
     transition: 0.2s;
 }
+// friend-page
+.container-users{
+    display: flex;
+    flex-direction: row;
+    width: 99%;
+}
+.user-card-friend{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #747264;
+    border-radius: 15px;
+    padding: 10px;
+    color: #E0CCBE;
+    margin: 10px;
+}
+.btn-add-friend{
+    background-color: #3C3633;
+    color: #E0CCBE;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    font-family: 'Montserrat';
+    transition: 0.2s;
+}
+.btn-add-friend:hover{
+    background-color: #E0CCBE;
+    color: #3C3633;
+    transition: 0.2s;
+}
+.user-card-friend-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.btn-card-friend{
+    margin-top: 5px;
+}

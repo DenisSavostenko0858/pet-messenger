@@ -1,3 +1,4 @@
+const {Users} = require("../models/database_controller");
 exports.renderHomePage = function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
@@ -14,11 +15,13 @@ exports.renderLoginPage = function(req, res) {
     const userName = req.session.userName;
     res.render('loginPage', {userEmail, userName});
 };
-exports.renderFriendsPage = function(req, res) {
+exports.renderFriendsPage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
     const userPhone = req.session.userPhone;
-    res.render('friendPage', {userEmail, userName, userPhone});
+    const userID = req.session.userID;
+    const listUsers = await Users.findAll();
+    res.render('friendPage', {listUsers:listUsers, userID, userEmail, userName, userPhone});
 };
 exports.renderProfilePage = function(req, res) {
     const userEmail = req.session.userEmail;

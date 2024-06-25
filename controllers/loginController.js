@@ -1,3 +1,4 @@
+const { download } = require("express/lib/response");
 const {Users} = require("../models/database_controller");
 const bcrypt = require("bcrypt");
 
@@ -22,6 +23,7 @@ exports.loginUser = (req, res, next) => {
         if (!data) {
             res.render("partials/errorPages/errorDateUserLoginPage");
         } else {
+            const id = data.id;
             const name = data.username;
             const email = data.email;
             const role = data.role;
@@ -29,6 +31,7 @@ exports.loginUser = (req, res, next) => {
             const age = data.age;
             const surname = data.usersurname;
             const User = {
+                userID: id,
                 userName: name,
                 userEmail: email,
                 userRole: role,
@@ -37,6 +40,7 @@ exports.loginUser = (req, res, next) => {
                 userSurname: surname
             }
             // Session
+            req.session.userID = User.userID;
             req.session.userEmail = User.userEmail;
             req.session.userName = User.userName;
             req.session.userPhone = User.userPhone;
