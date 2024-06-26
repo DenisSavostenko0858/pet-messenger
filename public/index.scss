@@ -525,3 +525,36 @@ body{
 .btn-card-friend{
     margin-top: 5px;
 }
+// messages page
+.container-chat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.chat-friend{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    background-color: #747264;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.conteiner-chat-preview{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 100%;
+    text-decoration: none;
+    color: #E0CCBE;
+}
+.title-chat-prew-header{
+    font-size: 20px;
+    color: #EEEDEB;
+}
+.title-chat-prew{
+    font-size: 16px;
+}

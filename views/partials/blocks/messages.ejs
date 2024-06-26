@@ -1,0 +1,28 @@
+<%
+const friends = userFriends.friends;
+const friendsArray = JSON.parse(friends);
+const friendsArrayLength = friendsArray.length
+%>
+
+<div class="body-chat-header">
+    <h3>Чаты :</h3>
+</div>
+<div class="body-chat-content">
+    <div class="container-chat">
+        <% if(friendsArrayLength == 0) { %>
+            <h3>Сдесь както пусто...</h3>
+        <% } else { %>
+            <% listFriends.forEach(listFriends => { %>
+                <div class="chat-friend">
+                    <div class="friend-img-card">
+                        <a href=""><img src="/images/resourse-for-user/avatar.png" width="50px"></a>
+                    </div>
+                    <a href="/" class="conteiner-chat-preview">
+                        <div class="title-chat-prew-header"><%- listFriends.username %> <%- listFriends.usersurname %></div>
+                        <div class="title-chat-prew">Написать</div>
+                    </a>
+                </div>
+            <% }) %>    
+        <% } %>
+    </div>
+</div>

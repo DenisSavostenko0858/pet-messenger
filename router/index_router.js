@@ -20,4 +20,6 @@ rout.post('/dellfriend', friendController.dellFriends);
 
 rout.get('/profile', renderPageController.renderProfilePage);
 
+rout.get('/chat', renderPageController.renderChatPage);
+
 module.exports = rout;

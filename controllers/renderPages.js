@@ -29,12 +29,25 @@ exports.renderFriendsPage = async function(req, res) {
     let listFriends = await Users.findAll({ where: { id: friendsIDs }});
     res.render('friendPage', {listUsers: listUsers, listFriends: listFriends, userID, userEmail, userName, userPhone});
 };
-exports.renderProfilePage = function(req, res) {
+exports.renderProfilePage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
     const userPhone = req.session.userPhone;
     const userAge = req.session.userAge;
-    const userSurname = req.session.userSurname;
-    const userStatus = req.session.userStatus;
-    res.render('profilePage', {userEmail, userName, userPhone, userAge, userSurname, userStatus});
+
+    const userDate = await Users.findOne({ where: { email: userEmail }});
+    res.render('profilePage', {userDate:userDate ,userEmail, userPhone, userName, userAge});
+};
+exports.renderChatPage = async function(req, res) {
+    const userEmail = req.session.userEmail;
+    const userName = req.session.userName;
+    const userPhone = req.session.userPhone;
+
+    const userFriends = await Users.findOne({ where: { email: userEmail }});
+
+    const friendsID = userFriends.friends;
+    let friendsIDs = JSON.parse(friendsID); 
+
+    let listFriends = await Users.findAll({ where: { id: friendsIDs }});
+    res.render('messagesPage', {listFriends: listFriends, userFriends:userFriends, userEmail, userName, userPhone});
 };
