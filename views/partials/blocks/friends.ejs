@@ -2,6 +2,29 @@
     <h3>Ваши контакты :</h3>
 </div>
 <div class="body-chat-content">
+    <h3>Список ваших контактов :</h3>
+    <div class="container-users">
+        <% listFriends.forEach(listFriends => { %>
+            <form action="/dellfriend" method="post">
+                <div class="user-card-friend">
+                    <div class="user-card-friend-left">
+                        <div class="friend-img-card">
+                            <a href=""><img src="/images/resourse-for-user/avatar.png" width="50px"></a>
+                        </div>
+                    </div>
+                    <div class="user-card-friend-right">
+                        <input type="hidden" name="friendId" value="<%= listFriends.id%>">
+                        <div class="title-card-friend">
+                            <%= listFriends.username %> <%= listFriends.usersurname %>
+                        </div>
+                        <div class="btn-card-friend">
+                                <input class="btn-add-friend" type="submit" value="Удалить">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        <% }) %>
+    </div>
     <h3>Все пользователи :</h3>
     <div class="container-users">
         <% listUsers.forEach(listUsers => { %>

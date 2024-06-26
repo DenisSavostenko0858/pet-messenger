@@ -16,6 +16,7 @@ rout.get('/logout', loginController.logout);
 
 rout.get('/friend', renderPageController.renderFriendsPage);
 rout.post('/addfriend', friendController.addFriends);
+rout.post('/dellfriend', friendController.dellFriends);
 
 rout.get('/profile', renderPageController.renderProfilePage);
 

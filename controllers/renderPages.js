@@ -21,7 +21,13 @@ exports.renderFriendsPage = async function(req, res) {
     const userPhone = req.session.userPhone;
     const userID = req.session.userID;
     const listUsers = await Users.findAll();
-    res.render('friendPage', {listUsers:listUsers, userID, userEmail, userName, userPhone});
+    const userFriends = await Users.findOne({ where: { email: userEmail }});
+
+    const friendsID = userFriends.friends;
+    let friendsIDs = JSON.parse(friendsID); 
+    console.log(friendsIDs);
+    let listFriends = await Users.findAll({ where: { id: friendsIDs }});
+    res.render('friendPage', {listUsers: listUsers, listFriends: listFriends, userID, userEmail, userName, userPhone});
 };
 exports.renderProfilePage = function(req, res) {
     const userEmail = req.session.userEmail;
