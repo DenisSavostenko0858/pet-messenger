@@ -1,18 +1,24 @@
 const {Users} = require("../models/database_controller");
+const {Message} = require("../models/database_controller");
+const { Op } = require('sequelize');
+
 exports.renderHomePage = function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
     const userPhone = req.session.userPhone;
+    
     res.render('homePage', {userEmail, userName, userPhone});
 };
 exports.renderRegisterPage = function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
+
     res.render('registerPage', {userEmail, userName});
 };
 exports.renderLoginPage = function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
+
     res.render('loginPage', {userEmail, userName});
 };
 exports.renderFriendsPage = async function(req, res) {
@@ -20,12 +26,14 @@ exports.renderFriendsPage = async function(req, res) {
     const userName = req.session.userName;
     const userPhone = req.session.userPhone;
     const userID = req.session.userID;
+
     const listUsers = await Users.findAll();
     const userFriends = await Users.findOne({ where: { email: userEmail }});
 
     const friendsID = userFriends.friends;
     let friendsIDs = JSON.parse(friendsID); 
     console.log(friendsIDs);
+
     let listFriends = await Users.findAll({ where: { id: friendsIDs }});
     res.render('friendPage', {listUsers: listUsers, listFriends: listFriends, userID, userEmail, userName, userPhone});
 };
@@ -51,9 +59,36 @@ exports.renderChatPage = async function(req, res) {
     let listFriends = await Users.findAll({ where: { id: friendsIDs }});
     res.render('messagesPage', {listFriends: listFriends, userFriends:userFriends, userEmail, userName, userPhone});
 };
-exports.renderMessangePage = function(req, res) {
+exports.renderMessangePage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
     const userPhone = req.session.userPhone;
-    res.render('chatPage', {userEmail, userName, userPhone});
+
+    try {
+        const friendEmail = req.session.contactEmail;
+        const contactEmail = req.body.contactEmail !== undefined ? req.body.contactEmail : friendEmail;
+        
+        const userData = await Users.findOne({where: { email: userEmail} });
+        const contactData = await Users.findOne({where: { email: contactEmail}});
+        const chatMessage = await Message.findAll({  
+            where: {
+            [Op.or]: [
+              { sender: userEmail, recipient: contactEmail },
+              { sender: contactEmail, recipient: userEmail }
+            ]
+          }
+        });
+
+        res.render('chatPage', {chatMessage: chatMessage, userData, contactData, userEmail, userName, userPhone});   
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Ошибка сервера");   
+    }
+};
+exports.renderEditMessagePage = async function(req, res) {
+    const userEmail = req.session.userEmail;
+    const userName = req.session.userName;
+    const userPhone = req.session.userPhone;
+
+    res.render('editMessage', {userEmail, userName, userPhone});
 };

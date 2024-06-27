@@ -1,13 +1,40 @@
 <div class="body-chat-header">
-    <h3>Пользователь :</h3>
+    <h3><%- contactData.username %></h3>
 </div>
 <div class="body-chat-content">
     <div class="container-messenge">
-
+        <% if (chatMessage.length === 0) { %>
+            <div class="message-error">Сообщений пока нет.</div>
+        <% } %>
+        <% chatMessage.forEach(chatMessage => { %>
+            <div class="message">
+                <div class="message-sendler"><%- chatMessage.sender %></div>
+                <div class="message-text"><%- chatMessage.messagetext %></div>
+                <div class="container-date">
+                    <div class="message-date"><%- chatMessage.date.getHours() %>:<%- chatMessage.date.getMinutes() %></div>
+                    <% if(userEmail == chatMessage.sender){ %>
+                        <form action="/dellmessage" method="post">
+                            <input type="hidden" name="messageID" value="<%- chatMessage.id %>">
+                            <input type="hidden" name="contactEmail" value="<%- contactData.email%>">
+                            <input type="submit" value="Удалить" class="dell-btn">
+                        </form>
+                        <form action="/editpage" method="post">
+                            <input type="hidden" name="" value="<%- chatMessage.id %>">
+                            <input type="hidden" name="contactEmail" value="<%- contactData.email%>">
+                            <input type="submit" value="Изменить" class="dell-btn">
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        <% }) %>
     </div>
     <div class="container-send-messenge">
-        <form action="" method="" class="form-send-messenge">
-            <input type="text" class="input-send-messenge" placeholder="Введите сообщение...">
+        <form action="/addmessage" method="post" class="form-send-messenge">
+            <input type="hidden" name="userEmail" value="<%- userData.email%>">
+            <input type="hidden" name="recipientEmail" value="<%- contactData.email%>">
+            <input type="hidden" name="contactEmail" value="<%- contactData.email%>">
+
+            <input type="text" name="message" class="input-send-messenge" placeholder="Введите сообщение...">
             <input type="submit" class="button-send-messenge" value="Отправить">
         </form>
     </div>

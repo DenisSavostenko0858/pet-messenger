@@ -17,10 +17,11 @@ const friendsArrayLength = friendsArray.length
                     <div class="friend-img-card">
                         <a href=""><img src="/images/resourse-for-user/avatar.png" width="50px"></a>
                     </div>
-                    <a href="/message" class="conteiner-chat-preview">
+                    <form action="/message" method="post" class="conteiner-chat-preview" >
+                        <input type="hidden" name="contactEmail" value="<%- listFriends.email %>">
                         <div class="title-chat-prew-header"><%- listFriends.username %> <%- listFriends.usersurname %></div>
-                        <div class="title-chat-prew">Написать</div>
-                    </a>
+                        <input type="submit" class="title-chat-prew-btn" value="Написать...">
+                    </form>
                 </div>
             <% }) %>    
         <% } %>
