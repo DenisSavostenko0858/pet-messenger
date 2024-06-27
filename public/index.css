@@ -625,4 +625,51 @@ body {
 
 .title-chat-prew {
   font-size: 16px;
+}
+
+.container-send-messenge {
+  display: flex;
+  flex-direction: row;
+  background-color: #3C3633;
+  border-radius: 15px;
+  padding: 10px;
+  width: 98%;
+}
+
+.container-messenge {
+  height: 90%;
+}
+
+.input-send-messenge {
+  width: 90%;
+  background-color: #3C3633;
+  color: #E0CCBE;
+  border: none;
+  font-size: 20px;
+}
+
+.input-send-messenge:focus {
+  outline: none;
+}
+
+.form-send-messenge {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.button-send-messenge {
+  background-color: #747264;
+  color: #E0CCBE;
+  border: #747264;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.button-send-messenge:hover {
+  background-color: #E0CCBE;
+  color: #3C3633;
+  transition: 0.2s;
 }/*# sourceMappingURL=index.css.map */

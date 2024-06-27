@@ -22,4 +22,6 @@ rout.get('/profile', renderPageController.renderProfilePage);
 
 rout.get('/chat', renderPageController.renderChatPage);
 
+rout.get('/message', renderPageController.renderMessangePage);
+
 module.exports = rout;

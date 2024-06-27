@@ -51,3 +51,9 @@ exports.renderChatPage = async function(req, res) {
     let listFriends = await Users.findAll({ where: { id: friendsIDs }});
     res.render('messagesPage', {listFriends: listFriends, userFriends:userFriends, userEmail, userName, userPhone});
 };
+exports.renderMessangePage = function(req, res) {
+    const userEmail = req.session.userEmail;
+    const userName = req.session.userName;
+    const userPhone = req.session.userPhone;
+    res.render('chatPage', {userEmail, userName, userPhone});
+};
