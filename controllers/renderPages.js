@@ -46,6 +46,16 @@ exports.renderProfilePage = async function(req, res) {
     const userDate = await Users.findOne({ where: { email: userEmail }});
     res.render('profilePage', {userDate:userDate ,userEmail, userPhone, userName, userAge});
 };
+exports.renderProfileContactPage = async function(req, res) {
+    const userEmail = req.session.userEmail;
+    const userName = req.session.userName;
+    const userPhone = req.session.userPhone;
+
+    const contactID = req.body.contactID;
+
+    const contactDate = await Users.findOne({ where: { id: contactID }});
+    res.render('profileContactPage', {contactDate:contactDate, userEmail, userPhone, userName});
+};
 exports.renderChatPage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
@@ -90,5 +100,8 @@ exports.renderEditMessagePage = async function(req, res) {
     const userName = req.session.userName;
     const userPhone = req.session.userPhone;
 
-    res.render('editMessage', {userEmail, userName, userPhone});
+    const messageID = req.body.messageID;
+    const messageData = await Message.findOne({where: { id: messageID} });
+
+    res.render('editMessage', {messageData: messageData, userEmail, userName, userPhone});
 };

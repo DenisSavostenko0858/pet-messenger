@@ -8,10 +8,25 @@
         <% } %>
         <% chatMessage.forEach(chatMessage => { %>
             <div class="message">
-                <div class="message-sendler"><%- chatMessage.sender %></div>
+                <div class="message-sendler">
+                    <% if( contactData.email === chatMessage.sender) { %>
+                        <form action="/profilecontact" method="post">
+                            <input type="hidden" name="contactID" value="<%- contactData.id %>">
+                            <input type="submit" class="input-link" value="<%- contactData.username %>">
+                        </form>
+                    <% } else { %>
+                        <a class="text" href="/profile"><%- userName %></a>
+                    <% } %>        
+                </div>
                 <div class="message-text"><%- chatMessage.messagetext %></div>
                 <div class="container-date">
-                    <div class="message-date"><%- chatMessage.date.getHours() %>:<%- chatMessage.date.getMinutes() %></div>
+                    <div class="message-date">
+                        <% if(chatMessage.date.getMinutes() < 10){ %>
+                            <%- chatMessage.date.getHours() %>:0<%- chatMessage.date.getMinutes() %>
+                        <% } else { %>
+                            <%- chatMessage.date.getHours() %>:<%- chatMessage.date.getMinutes() %>
+                        <% } %>
+                    </div>
                     <% if(userEmail == chatMessage.sender){ %>
                         <form action="/dellmessage" method="post">
                             <input type="hidden" name="messageID" value="<%- chatMessage.id %>">
@@ -19,7 +34,7 @@
                             <input type="submit" value="Удалить" class="dell-btn">
                         </form>
                         <form action="/editpage" method="post">
-                            <input type="hidden" name="" value="<%- chatMessage.id %>">
+                            <input type="hidden" name="messageID" value="<%- chatMessage.id %>">
                             <input type="hidden" name="contactEmail" value="<%- contactData.email%>">
                             <input type="submit" value="Изменить" class="dell-btn">
                         </form>
@@ -34,7 +49,7 @@
             <input type="hidden" name="recipientEmail" value="<%- contactData.email%>">
             <input type="hidden" name="contactEmail" value="<%- contactData.email%>">
 
-            <input type="text" name="message" class="input-send-messenge" placeholder="Введите сообщение...">
+            <input type="text" name="message" class="input-send-messenge" placeholder="Введите сообщение..." autocomplete="off">
             <input type="submit" class="button-send-messenge" value="Отправить">
         </form>
     </div>

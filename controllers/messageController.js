@@ -38,4 +38,29 @@ exports.dellMessage = async (req, res, next) => {
         return res.status(500).send("Ошибка сервера");
     }
 };
+exports.editMessage = async (req, res, next) => {
+    try {
+        if (!req.body || !req.body.messageID || !req.body.messageText) {
+            return res.status(400).send("Сообщене не было передано");
+        }
+        const messageID = req.body.messageID;
+        const messageText = req.body.messageText;
 
+        const fearchMessageID = await Message.findOne({ where: { id: messageID } });
+        
+        if (!fearchMessageID) {
+            return res.status(404).send("Сообщене не найдено");
+        }
+
+        fearchMessageID.messagetext = messageText;
+        await fearchMessageID.save();
+
+        console.log("Сообщение изменено");
+
+        req.session.contactEmail = req.body.contactEmail;
+        res.redirect('/message')
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Ошибка сервера");
+    }
+};

@@ -1,0 +1,59 @@
+<%
+const userBirthYear = contactDate.age;
+const currentDate = new Date();
+const userBirthDate = new Date(userBirthYear); 
+const diffInMs = currentDate.getTime() - userBirthDate.getTime();
+const ageDate = new Date(diffInMs);
+const userBirth = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+const friends = contactDate.friends;
+const friendsArray = JSON.parse(friends);
+const friendsArrayLength = friendsArray.length
+%>
+<div class="body-chat-header">
+    <h3>Профиль :</h3>
+</div>
+<div class="body-chat-content">
+    <div class="user-card-profile">
+        <div class="profile-body">
+            <div class="title-body-card-user">Данные пользователя :</div>
+            <div class="container-profile-content">
+                <div class="profile-content">Имя: <%= contactDate.username%></div>
+            </div>
+            <div class="container-profile-content">
+                <div class="profile-content">Фамилия: <%= contactDate.usersurname%></div>
+            </div>
+            <div class="container-profile-content">
+                <div class="profile-content">Возраст: <%-userBirth-%> лет</div>
+            </div>
+            <div class="container-profile-content">
+                <div class="profile-content">Телефон: <%= contactDate.telephone%></div>
+            </div>
+            <div class="container-profile-content">
+                <div class="profile-content">Почта: <%= contactDate.email%></div>
+            </div>
+        </div>
+        <div class="profile-body">
+            <div class="title-body-card-user">О вас:</div>
+            <div class="profile-about">
+                <div class="container-profile-content">
+                    <div class="profile-avatar"><img src="/images/resourse-for-user/avatar.png" alt="аватарка" class="avatar-user-img"></div>
+                </div>
+                <div class="container-profile-content">
+                    <div class="profile-content-status">Статус: 
+                        <% if(!contactDate.about){ %>
+                            Сдесь пока пусто...
+                        <% } else { %>
+                            <div class="status-user">
+                                <%-contactDate.about-%>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="container-profile-content">
+                <div class="profile-content">Друзья:  <%= friendsArrayLength%></div>
+            </div>
+        </div>
+    </div>
+</div>

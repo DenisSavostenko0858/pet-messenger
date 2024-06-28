@@ -5,52 +5,62 @@
     <h3>Список ваших контактов :</h3>
     <div class="container-users">
         <% listFriends.forEach(listFriends => { %>
-            <form action="/dellfriend" method="post">
-                <div class="user-card-friend">
-                    <div class="user-card-friend-left">
-                        <div class="friend-img-card">
-                            <a href=""><img src="/images/resourse-for-user/avatar.png" width="50px"></a>
-                        </div>
-                    </div>
-                    <div class="user-card-friend-right">
-                        <input type="hidden" name="friendId" value="<%= listFriends.id%>">
-                        <div class="title-card-friend">
-                            <%= listFriends.username %> <%= listFriends.usersurname %>
-                        </div>
-                        <div class="btn-card-friend">
-                                <input class="btn-add-friend" type="submit" value="Удалить">
-                        </div>
+            <div class="user-card-friend">
+                <div class="user-card-friend-left">
+                    <div class="friend-img-card">
+                        <img src="/images/resourse-for-user/avatar.png" width="50px">
                     </div>
                 </div>
-            </form>
+                <div class="user-card-friend-right">
+                    <div class="title-card-friend">
+                        <form action="/profilecontact" method="post">
+                            <input type="hidden" name="contactID" value="<%= listFriends.id %>">
+                            <input type="submit" class="input-link-friend" value="<%= listFriends.username %> <%= listFriends.usersurname %>">
+                        </form>
+                    </div>
+                    <div class="btn-card-friend">
+                        <form action="/dellfriend" method="post">
+                            <input type="hidden" name="friendId" value="<%= listFriends.id%>">
+                            <input class="btn-add-friend" type="submit" value="Удалить">
+                        </form>
+                    </div>
+                </div>
+            </div>
         <% }) %>
     </div>
     <h3>Все пользователи :</h3>
     <div class="container-users">
         <% listUsers.forEach(listUsers => { %>
-            <form action="/addfriend" method="post">
-                <div class="user-card-friend">
-                    <div class="user-card-friend-left">
-                        <div class="friend-img-card">
-                            <a href=""><img src="/images/resourse-for-user/avatar.png" width="50px"></a>
-                        </div>
+            <div class="user-card-friend">
+                <div class="user-card-friend-left">
+                    <div class="friend-img-card">
+                        <a href=""><img src="/images/resourse-for-user/avatar.png" width="50px"></a>
                     </div>
-                    <div class="user-card-friend-right">
-                        <input type="hidden" name="friendId" value="<%= listUsers.id%>">
-                        <input type="hidden" name="userID" value="<%= userID%>">
-                        <div class="title-card-friend">
-                            <%= listUsers.username %> <%= listUsers.usersurname %>
-                        </div>
-                        <div class="btn-card-friend">
+                </div>
+                <div class="user-card-friend-right">
+                    <div class="title-card-friend">
+                        <form action="/profilecontact" method="post">
                             <% if(listUsers.email == userEmail) { %>
-                            <a href="/profile" class="btn-add-friend">Это вы</a>
+                                <a href="/profile" class="input-link-friend"><%= listUsers.username %> <%= listUsers.usersurname %></a>
+                            <% } else { %>
+                                <input type="hidden" name="contactID" value="<%= listUsers.id %>">
+                                <input type="submit" class="input-link-friend" value="<%= listUsers.username %> <%= listUsers.usersurname %>">
+                            <% } %>    
+                        </form>
+                    </div>
+                    <div class="btn-card-friend">
+                        <form action="/addfriend" method="post">
+                            <input type="hidden" name="userID" value="<%= userID%>">
+                            <input type="hidden" name="friendId" value="<%= listUsers.id%>">
+                            <% if(listUsers.email == userEmail) { %>
+                                <a href="/profile" class="btn-add-friend">Это вы</a>
                             <% } else { %>
                                 <input class="btn-add-friend" type="submit" value="Добавить">
                             <% } %>   
+                        </form>
                         </div>
                     </div>
                 </div>
-            </form>
         <% }) %>
     </div>
 </div>

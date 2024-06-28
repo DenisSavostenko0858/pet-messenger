@@ -15,13 +15,22 @@ const friendsArrayLength = friendsArray.length
             <% listFriends.forEach(listFriends => { %>
                 <div class="chat-friend">
                     <div class="friend-img-card">
-                        <a href=""><img src="/images/resourse-for-user/avatar.png" width="50px"></a>
+                        <img src="/images/resourse-for-user/avatar.png" width="50px">
                     </div>
-                    <form action="/message" method="post" class="conteiner-chat-preview" >
-                        <input type="hidden" name="contactEmail" value="<%- listFriends.email %>">
-                        <div class="title-chat-prew-header"><%- listFriends.username %> <%- listFriends.usersurname %></div>
-                        <input type="submit" class="title-chat-prew-btn" value="Написать...">
-                    </form>
+                    <div class="conteiner-chat-preview">
+                        <div class="title-chat-prew-header">
+                            <form action="/profilecontact" method="post">
+                                <input type="hidden" name="contactID" value="<%= listFriends.id %>">
+                                <input type="submit" class="input-link-friend" value="<%= listFriends.username %> <%= listFriends.usersurname %>">
+                            </form>
+                        </div>
+                        <form action="/message" method="post">
+                            <div class="btn-redirect-chat">
+                                <input type="hidden" name="contactEmail" value="<%- listFriends.email %>">
+                                <input type="submit" class="title-chat-prew-btn" value="Написать...">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             <% }) %>    
         <% } %>

@@ -21,6 +21,9 @@ rout.post('/dellfriend', friendController.dellFriends);
 
 rout.get('/profile', renderPageController.renderProfilePage);
 
+rout.post('/profilecontact', renderPageController.renderProfileContactPage);
+rout.get('/profilecontact', renderPageController.renderProfileContactPage)
+
 rout.get('/chat', renderPageController.renderChatPage);
 
 rout.post('/message', renderPageController.renderMessangePage);
@@ -28,6 +31,9 @@ rout.get('/message', renderPageController.renderMessangePage);
 
 rout.post('/addmessage', messagesController.addMessage);
 rout.post('/dellmessage', messagesController.dellMessage);
+rout.post('/editmessage', messagesController.editMessage);
  
 rout.post('/editpage', renderPageController.renderEditMessagePage);
+rout.get('/editpage', renderPageController.renderEditMessagePage);
+
 module.exports = rout;

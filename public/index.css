@@ -591,6 +591,19 @@ body {
   margin-top: 5px;
 }
 
+.input-link-friend {
+  background-color: #747264;
+  color: #E0CCBE;
+  border: none;
+  font-size: 22px;
+  font-family: "Montserrat";
+  text-decoration: none;
+}
+
+.input-link-friend:hover {
+  color: #EEEDEB;
+}
+
 .container-chat {
   display: flex;
   justify-content: center;
@@ -629,12 +642,17 @@ body {
 }
 
 .title-chat-prew-btn {
+  width: 100%;
   background-color: #747264;
   color: #E0CCBE;
   border: none;
   font-size: 16px;
   text-align: start;
   cursor: pointer;
+}
+
+.btn-redirect-chat {
+  width: 100%;
 }
 
 .container-send-messenge {
@@ -752,4 +770,86 @@ body {
 .dell-btn:hover {
   background-color: red;
   transition: 0.2s;
+}
+
+.text {
+  color: #EEEDEB;
+  text-decoration: none;
+}
+
+.text:hover {
+  color: #E0CCBE;
+}
+
+.input-link {
+  border: none;
+  background-color: #747264;
+  color: #EEEDEB;
+  font-family: "Montserrat";
+  font-size: 18px;
+  margin-left: -3px;
+}
+
+.input-link:hover {
+  color: #E0CCBE;
+}
+
+.message-edit {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-message-edit {
+  display: flex;
+  flex-direction: column;
+  background-color: #747264;
+  border-radius: 15px;
+  padding: 10px;
+  width: 90%;
+}
+
+.container-input-edit {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.message-text-edit {
+  display: flex;
+  border: none;
+  width: 90%;
+  background-color: #3C3633;
+  padding: 10px;
+  border-radius: 15px;
+  color: #E0CCBE;
+  font-size: 18px;
+  font-family: "Montserrat";
+}
+
+.message-text-edit:focus {
+  outline: none;
+}
+
+.btn-edit-message {
+  background-color: #3C3633;
+  color: #E0CCBE;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.btn-edit-message:hover {
+  background-color: #E0CCBE;
+  color: #3C3633;
+  transition: 0.2s;
+}
+
+.edit-name-sender {
+  margin-bottom: 10px;
 }/*# sourceMappingURL=index.css.map */
