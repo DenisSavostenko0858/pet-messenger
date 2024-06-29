@@ -46,6 +46,15 @@ exports.renderProfilePage = async function(req, res) {
     const userDate = await Users.findOne({ where: { email: userEmail }});
     res.render('profilePage', {userDate:userDate ,userEmail, userPhone, userName, userAge});
 };
+exports.renderEditDataUser = async function(req, res) {
+    const userEmail = req.session.userEmail;
+    const userName = req.session.userName;
+    const userPhone = req.session.userPhone;
+    const userAge = req.session.userAge;
+
+    const userDate = await Users.findOne({ where: { email: userEmail }});
+    res.render('editProfilePage', {userDate:userDate ,userEmail, userPhone, userName, userAge});
+};
 exports.renderProfileContactPage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;

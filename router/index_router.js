@@ -5,6 +5,7 @@ const controllerRegister = require('../controllers/registerController');
 const loginController = require('../controllers/loginController');
 const friendController = require('../controllers/friendsController');
 const messagesController = require('../controllers/messageController');
+const dataUserController = require('../controllers/dataUserController');
 
 rout.get('/', renderPageController.renderHomePage);
 
@@ -20,6 +21,10 @@ rout.post('/addfriend', friendController.addFriends);
 rout.post('/dellfriend', friendController.dellFriends);
 
 rout.get('/profile', renderPageController.renderProfilePage);
+rout.post('/profile', renderPageController.renderProfilePage);
+
+rout.get('/profileedit', renderPageController.renderEditDataUser);
+rout.post('/editdatauser', dataUserController.editDataUser)
 
 rout.post('/profilecontact', renderPageController.renderProfileContactPage);
 rout.get('/profilecontact', renderPageController.renderProfileContactPage)

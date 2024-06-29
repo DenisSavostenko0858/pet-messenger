@@ -756,3 +756,43 @@ body{
 .edit-name-sender{
     margin-bottom: 10px;
 }
+// edit profile page
+.edit-input-profile{
+    background-color: #E0CCBE;
+    color: #3C3633;
+    font-family: 'Montserrat';
+    border-radius: 15px;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    max-width: 200px;
+    margin-left: 10px;
+}
+.profile-content-status{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.btn-add-edit-profile{
+    background-color: #3C3633;
+    color: #E0CCBE;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.2s;
+}
+.btn-add-edit-profile:hover{
+    background-color: #E0CCBE;
+    color: #3C3633;
+    transition: 0.2s;
+}
+.profile-about-edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}

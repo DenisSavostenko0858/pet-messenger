@@ -40,12 +40,12 @@ const friendsArrayLength = friendsArray.length
                     <div class="profile-avatar"><img src="/images/resourse-for-user/avatar.png" alt="аватарка" class="avatar-user-img"></div>
                 </div>
                 <div class="container-profile-content">
-                    <div class="profile-content-status">Статус: 
+                    <div class="profile-content-status">Статус 
                         <% if(!userDate.about){ %>
-                            Сдесь пока пусто...
+                            : Сдесь пока пусто...
                         <% } else { %>
                             <div class="status-user">
-                                <%-userDate.about-%>
+                                : <%-userDate.about-%>
                             </div>
                         <% } %>
                     </div>
@@ -54,7 +54,7 @@ const friendsArrayLength = friendsArray.length
             <div class="container-profile-content">
                 <div class="profile-content">Друзья:  <%= friendsArrayLength%></div>
             </div>
-            <a href="" class="btn-add">Изменить данные</a>
+            <a href="/profileedit" class="btn-add">Изменить данные</a>
         </div>
     </div>
 </div>

@@ -1,0 +1,59 @@
+<div class="body-chat-header">
+    <h3>Редактировать данные :</h3>
+</div>
+<div class="body-chat-content">
+    <form action="/editdatauser" method="post">
+        <div class="user-card-profile">
+            <input type="hidden" name="userID" value="<%= userDate.id%>">
+            <div class="profile-body">
+                <div class="title-body-card-user">Ваши данные :</div>
+                <div class="container-profile-content">
+                    <div class="profile-content">*Имя*: 
+                        <input type="text" class="edit-input-profile" name="name" value="<%= userDate.username%>">
+                    </div>
+                </div>
+                <div class="container-profile-content">
+                    <div class="profile-content">*Фамилия*: 
+                        <input type="text" class="edit-input-profile" name="surname"  value="<%= userDate.usersurname%>">
+                    </div>
+                </div>
+                <div class="container-profile-content">
+                    <div class="profile-content">*Телефон*: 
+                        <input type="tel" class="edit-input-profile" name="telephone" value="<%= userDate.telephone%>">
+                    </div>
+                </div>
+                <div class="container-profile-content">
+                    <div class="profile-content">*Почта*:
+                        <input type="email" class="edit-input-profile" name="email" value="<%-userDate.email-%>">
+                    </div>
+                </div>
+            </div>
+            <div class="profile-body">
+                <div class="title-body-card-user">О вас:</div>
+                <div class="profile-about-edit">
+                    <div class="container-profile-content">
+                        <div class="profile-avatar">
+                            <img src="/images/resourse-for-user/avatar.png" alt="аватарка" class="avatar-user-img">
+                        </div>
+                        <input type="submit" class="btn-add-edit-profile" value="Загрузить">
+                    </div>
+                </div>
+                <div class="container-profile-content">
+                    <div class="profile-content-status">Статус: 
+                        <div class="status-user">
+                            <input type="text" class="edit-input-profile" name="about" value="<%-userDate.about-%>">
+                        </div>
+                    </div>
+                </div>
+                <div class="container-profile-content">
+                    <div class="profile-content-status">*Пароль*: 
+                        <div class="status-user">
+                            <input type="password" class="edit-input-profile" name="password">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn-add-edit-profile" value="Изменить данные">
+            </div>
+        </div>
+    </form>
+</div>
