@@ -50,7 +50,7 @@
                     </div>
                     <div class="btn-card-friend">
                         <form action="/addfriend" method="post">
-                            <input type="hidden" name="userID" value="<%= userID%>">
+                            <input type="hidden" name="userID" value="<%= userDate.id%>">
                             <input type="hidden" name="friendId" value="<%= listUsers.id%>">
                             <% if(listUsers.email == userEmail) { %>
                                 <a href="/profile" class="btn-add-friend">Это вы</a>

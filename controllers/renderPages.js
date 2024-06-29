@@ -2,12 +2,15 @@ const {Users} = require("../models/database_controller");
 const {Message} = require("../models/database_controller");
 const { Op } = require('sequelize');
 
-exports.renderHomePage = function(req, res) {
+exports.renderHomePage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
-    const userPhone = req.session.userPhone;
+    let userDate;
+    if(userEmail && userName) {
+        userDate = await Users.findOne({where: { email: userEmail} });
+    }
     
-    res.render('homePage', {userEmail, userName, userPhone});
+    res.render('homePage', {userDate: userDate, userEmail, userName});
 };
 exports.renderRegisterPage = function(req, res) {
     const userEmail = req.session.userEmail;
@@ -24,9 +27,8 @@ exports.renderLoginPage = function(req, res) {
 exports.renderFriendsPage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
-    const userPhone = req.session.userPhone;
-    const userID = req.session.userID;
 
+    const userDate = await Users.findOne({ where: { email: userEmail }});
     const listUsers = await Users.findAll();
     const userFriends = await Users.findOne({ where: { email: userEmail }});
 
@@ -35,59 +37,57 @@ exports.renderFriendsPage = async function(req, res) {
     console.log(friendsIDs);
 
     let listFriends = await Users.findAll({ where: { id: friendsIDs }});
-    res.render('friendPage', {listUsers: listUsers, listFriends: listFriends, userID, userEmail, userName, userPhone});
+    res.render('friendPage', {listUsers: listUsers, listFriends: listFriends, userDate: userDate, userEmail, userName});
 };
 exports.renderProfilePage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
-    const userPhone = req.session.userPhone;
     const userAge = req.session.userAge;
 
     const userDate = await Users.findOne({ where: { email: userEmail }});
-    res.render('profilePage', {userDate:userDate ,userEmail, userPhone, userName, userAge});
+    res.render('profilePage', {userDate:userDate, userEmail, userName, userAge});
 };
 exports.renderEditDataUser = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
-    const userPhone = req.session.userPhone;
     const userAge = req.session.userAge;
 
     const userDate = await Users.findOne({ where: { email: userEmail }});
-    res.render('editProfilePage', {userDate:userDate ,userEmail, userPhone, userName, userAge});
+    res.render('editProfilePage', {userDate:userDate, userEmail, userName, userAge});
 };
 exports.renderProfileContactPage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
-    const userPhone = req.session.userPhone;
 
     const contactID = req.body.contactID;
 
     const contactDate = await Users.findOne({ where: { id: contactID }});
-    res.render('profileContactPage', {contactDate:contactDate, userEmail, userPhone, userName});
+    const userDate = await Users.findOne({where: { email: userEmail} });
+
+    res.render('profileContactPage', {userDate: userDate, contactDate:contactDate, userEmail, userName});
 };
 exports.renderChatPage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
-    const userPhone = req.session.userPhone;
 
     const userFriends = await Users.findOne({ where: { email: userEmail }});
+    const userDate = await Users.findOne({where: { email: userEmail} });
 
     const friendsID = userFriends.friends;
     let friendsIDs = JSON.parse(friendsID); 
 
     let listFriends = await Users.findAll({ where: { id: friendsIDs }});
-    res.render('messagesPage', {listFriends: listFriends, userFriends:userFriends, userEmail, userName, userPhone});
+    res.render('messagesPage', {userDate: userDate, listFriends: listFriends, userFriends:userFriends, userEmail, userName});
 };
 exports.renderMessangePage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
-    const userPhone = req.session.userPhone;
 
     try {
         const friendEmail = req.session.contactEmail;
         const contactEmail = req.body.contactEmail !== undefined ? req.body.contactEmail : friendEmail;
         
-        const userData = await Users.findOne({where: { email: userEmail} });
+        const userDate = await Users.findOne({where: { email: userEmail} });
         const contactData = await Users.findOne({where: { email: contactEmail}});
         const chatMessage = await Message.findAll({  
             where: {
@@ -98,7 +98,7 @@ exports.renderMessangePage = async function(req, res) {
           }
         });
 
-        res.render('chatPage', {chatMessage: chatMessage, userData, contactData, userEmail, userName, userPhone});   
+        res.render('chatPage', {chatMessage: chatMessage, userDate, contactData, userEmail, userName});   
     } catch (error) {
         console.error(error);
         return res.status(500).send("Ошибка сервера");   
@@ -107,10 +107,11 @@ exports.renderMessangePage = async function(req, res) {
 exports.renderEditMessagePage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
-    const userPhone = req.session.userPhone;
-
     const messageID = req.body.messageID;
+
+    const userDate = await Users.findOne({where: { email: userEmail} });
+    
     const messageData = await Message.findOne({where: { id: messageID} });
 
-    res.render('editMessage', {messageData: messageData, userEmail, userName, userPhone});
+    res.render('editMessage', {userDate: userDate, messageData: messageData, userEmail, userName});
 };

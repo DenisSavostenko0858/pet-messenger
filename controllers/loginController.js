@@ -40,12 +40,10 @@ exports.loginUser = (req, res, next) => {
                 userSurname: surname
             }
             // Session
-            req.session.userID = User.userID;
             req.session.userEmail = User.userEmail;
             req.session.userName = User.userName;
-            req.session.userPhone = User.userPhone;
             req.session.userAge = User.userAge;
-            req.session.userSurname = User.userSurname;
+
             console.log("Получили данные от пользователя " + User.userName + " с его почты " + User.userEmail + " и ролью " + User.userRole);
             console.log(req.session.userEmail + " Сессия создана");
             req.session.save((err) => {

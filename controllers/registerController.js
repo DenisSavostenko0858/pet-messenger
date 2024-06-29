@@ -23,11 +23,11 @@ exports.registerUsers = async (req, res, next) => {
             age: req.body.age,
             role: role,
           });
+
           req.session.userEmail = req.body.email;
           req.session.userName = req.body.username;
-          req.session.userPhone = req.body.telephone;
           req.session.userAge = req.body.age;
-          req.session.userSurname = req.body.usersurname;
+
           console.log("Пользователь создан");
           if (req.session.userEmail && req.session.userName) {
             res.redirect("/");
