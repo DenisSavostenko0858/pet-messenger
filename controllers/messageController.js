@@ -2,7 +2,7 @@ const {Message} = require("../models/database_controller");
 
 exports.addMessage = async (req, res, next) => {
     if (!req.body || !req.body.recipientEmail || !req.body.userEmail || !req.body.message) {
-        return res.status(400).send("Сообщене не отправлено");
+        return res.status(400).render("partials/errorPages/errorDataForm");
     }
     try {
         const dateMessage = new Date();
@@ -18,13 +18,13 @@ exports.addMessage = async (req, res, next) => {
         res.redirect('/message')
     } catch (error) {
         console.error(error);
-        return res.status(500).send("Ошибка сервера");
+        return res.status(500).render("partials/errorPages/errorServer");
     }
 };
 exports.dellMessage = async (req, res, next) => {
     try {
         if (!req.body || !req.body.messageID) {
-            return res.status(400).send("Сообщене не найдено");
+            return res.status(400).render("partials/errorPages/errorDataForm");
         }
         const messageID = req.body.messageID;
 
@@ -35,25 +35,25 @@ exports.dellMessage = async (req, res, next) => {
         res.redirect('/message')
     } catch (error) {
         console.error(error);
-        return res.status(500).send("Ошибка сервера");
+        return res.status(500).render("partials/errorPages/errorServer");
     }
 };
 exports.editMessage = async (req, res, next) => {
     try {
         if (!req.body || !req.body.messageID || !req.body.messageText) {
-            return res.status(400).send("Сообщене не было передано");
+            return res.status(400).render("partials/errorPages/errorDataForm");
         }
         const messageID = req.body.messageID;
         const messageText = req.body.messageText;
 
-        const fearchMessageID = await Message.findOne({ where: { id: messageID } });
+        const searchMessageID = await Message.findOne({ where: { id: messageID } });
         
-        if (!fearchMessageID) {
+        if (!searchMessageID) {
             return res.status(404).send("Сообщене не найдено");
         }
 
-        fearchMessageID.messagetext = messageText;
-        await fearchMessageID.save();
+        searchMessageID.messagetext = messageText;
+        await searchMessageID.save();
 
         console.log("Сообщение изменено");
 
@@ -61,6 +61,6 @@ exports.editMessage = async (req, res, next) => {
         res.redirect('/message')
     } catch (error) {
         console.error(error);
-        return res.status(500).send("Ошибка сервера");
+        return res.status(500).render("partials/errorPages/errorServer");
     }
 };

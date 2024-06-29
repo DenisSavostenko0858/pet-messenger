@@ -2,7 +2,7 @@ const {Users} = require("../models/database_controller");
 
 exports.addFriends = async (req, res, next) => {
     if (!req.body || !req.body.friendId || !req.body.userID) {
-        return res.status(400).send("Данные не передаются");
+        return res.status(400).render("partials/errorPages/errorDataForm");
     }
     try {
         const user = await Users.findOne({ where: { id: req.body.userID } });
@@ -22,7 +22,7 @@ exports.addFriends = async (req, res, next) => {
         }
         
         if (friendsArray.includes(req.body.friendId)) {
-            return res.status(400).send("Пользователь уже добавлен в контакты");
+            return res.status(400).render("partials/errorPages/errorFriendAdd");
         }
 
         friendsArray.push(req.body.friendId);
@@ -33,13 +33,14 @@ exports.addFriends = async (req, res, next) => {
         res.redirect('/friend')
     } catch (error) {
         console.error(error);
-        return res.status(500).send("Ошибка сервера");
+        return res.status(500).render("partials/errorPages/errorServer");
     }
 };
 exports.dellFriends = async (req, res, next) => {
     try {
         const user = await Users.findOne({ where: { email: req.session.userEmail } });
         const friend = await Users.findOne({ where: { id: req.body.friendId } });
+        
         if (!friend) {
             return res.status(400).send("Пользователь не найден");
         }
@@ -57,7 +58,7 @@ exports.dellFriends = async (req, res, next) => {
         res.redirect('/friend')
     } catch (error) {
         console.error(error);
-        return res.status(500).send("Ошибка сервера");
+        return res.status(500).render("partials/errorPages/errorServer");
     }
 };
 

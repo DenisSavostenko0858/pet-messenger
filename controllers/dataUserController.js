@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 exports.editDataUser = async (req, res, next) => {
     if (!req.body || !req.body.userID || !req.body.name || !req.body.surname || !req.body.password || !req.body.email || !req.body.telephone) {
-        return res.status(400).send("Данные не передаются");
+        return res.status(400).render("partials/errorPages/errorDataForm");
     }
     try {
         const user = await Users.findOne({ where: { id: req.body.userID } });
@@ -35,6 +35,6 @@ exports.editDataUser = async (req, res, next) => {
         res.redirect('/profile')
     } catch (error) {
         console.error(error);
-        return res.status(500).send("Ошибка сервера обновления данных");
+        return res.status(500).render("partials/errorPages/errorServer");
     }
 };

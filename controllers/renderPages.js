@@ -5,6 +5,7 @@ const { Op } = require('sequelize');
 exports.renderHomePage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
+
     let userDate;
     if(userEmail && userName) {
         userDate = await Users.findOne({where: { email: userEmail} });
@@ -30,9 +31,8 @@ exports.renderFriendsPage = async function(req, res) {
 
     const userDate = await Users.findOne({ where: { email: userEmail }});
     const listUsers = await Users.findAll();
-    const userFriends = await Users.findOne({ where: { email: userEmail }});
 
-    const friendsID = userFriends.friends;
+    const friendsID = userDate.friends;
     let friendsIDs = JSON.parse(friendsID); 
     console.log(friendsIDs);
 
@@ -70,14 +70,13 @@ exports.renderChatPage = async function(req, res) {
     const userEmail = req.session.userEmail;
     const userName = req.session.userName;
 
-    const userFriends = await Users.findOne({ where: { email: userEmail }});
     const userDate = await Users.findOne({where: { email: userEmail} });
 
-    const friendsID = userFriends.friends;
+    const friendsID = userDate.friends;
     let friendsIDs = JSON.parse(friendsID); 
 
     let listFriends = await Users.findAll({ where: { id: friendsIDs }});
-    res.render('messagesPage', {userDate: userDate, listFriends: listFriends, userFriends:userFriends, userEmail, userName});
+    res.render('messagesPage', {userDate: userDate, listFriends: listFriends, userEmail, userName});
 };
 exports.renderMessangePage = async function(req, res) {
     const userEmail = req.session.userEmail;
@@ -101,7 +100,7 @@ exports.renderMessangePage = async function(req, res) {
         res.render('chatPage', {chatMessage: chatMessage, userDate, contactData, userEmail, userName});   
     } catch (error) {
         console.error(error);
-        return res.status(500).send("Ошибка сервера");   
+        return res.status(500).render("partials/errorPages/errorServer");  
     }
 };
 exports.renderEditMessagePage = async function(req, res) {
@@ -110,7 +109,6 @@ exports.renderEditMessagePage = async function(req, res) {
     const messageID = req.body.messageID;
 
     const userDate = await Users.findOne({where: { email: userEmail} });
-    
     const messageData = await Message.findOne({where: { id: messageID} });
 
     res.render('editMessage', {userDate: userDate, messageData: messageData, userEmail, userName});
