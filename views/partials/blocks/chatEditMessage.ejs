@@ -10,7 +10,7 @@
     
                 <div class="edit-name-sender"><%- messageData.sender %></div>
                 <div class="container-input-edit">
-                    <input type="text" name="messageText" class="message-text-edit" value="<%- messageData.messagetext %>" autocomplete="off">
+                    <textarea name="messageText" class="message-text-edit" autocomplete="off"><%- messageData.messagetext %></textarea>
                     <input type="submit" class="btn-edit-message" value="Сохранить">
                 </div>
             </form>

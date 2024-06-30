@@ -1,0 +1,319 @@
+@media(max-width: 1560px){
+    .container-bar-right{
+        display: none;
+    }
+}
+@media(max-width: 1290px){
+    .container-body-row{
+        flex-direction: column-reverse;
+    }
+    .container-bar-left{
+        flex-direction: row;
+        height: auto;
+        width: 98%;
+        margin-top: 30px;
+        margin-left: 35px;
+    }
+    .body-container-bar{
+        width: 250px;
+    }
+}
+@media(max-width: 1020px){
+    .container-body-main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .contaiener-header{
+        width: 80%;
+    }
+    .container-body-chat{
+        width: 80%;
+    }
+    .container-bar-left{
+        max-width: 80%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-bar{
+        display: none;
+    }
+    .btn-bar{
+        width: 150px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    .body-container-bar{
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 580px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .container-alert{
+        flex-direction: column;
+        height: auto;
+        width: 500px;
+        align-items: center;
+    }
+    .slesh{
+        display: none;
+    }
+    .container-body{
+        height: auto;
+        width: 600px;
+    }
+    .container-alert-right{
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: none;
+        width: 100%;
+        flex-direction: column;
+    }
+    .container-alert-left{
+        margin: none;
+    }
+    .btn-social{
+        flex-direction: row;
+        width: 500px;
+    }
+    .container-alert-form-login{
+        width: 80%;
+        flex-direction: column;
+        height: auto;
+    }
+    .container-alert-form{
+        flex-direction: column;
+        height: auto;
+        width: 90%;
+    }
+    .profile-body{
+        width: 100%;
+    }
+    .profile-about{
+        flex-direction: column;
+        width: auto;
+    }
+    .container-profile-content{
+        width: auto;
+    }
+    .profile-content-status{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+@media(max-width: 750px){
+    .body-container-bar{
+        flex-direction: column;
+        width: 200px;
+        margin: 10px;
+    }
+    .container-bar-left{
+        width: auto;
+    }
+    .container-body{
+        width: 80%;
+    }
+    .container-alert{
+        width: auto;
+    }
+    .container-alert-left{
+        width: 90%;
+    }
+    .container-alert-right{
+        width: 90%;
+    }
+    .btn-social{
+        width: auto;
+    }
+    .container-alert-form-login{
+        width: 100%;
+    }
+    .form-login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .container-input-form-login{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .form-data-user{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        margin-left: 10px; 
+    }
+    .input-form{
+        width: 90%;
+        height: 40px;
+    }
+    .form-register{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .container-left-form{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .container-right-form{
+        width: 90%;
+        margin-left: -10px;
+    }
+    .user-card-profile{
+        flex-direction: column;
+        height: 100%;
+        width: auto;
+    }
+    .body-chat-content{
+        min-height: 500px;
+        width: auto;
+    }
+    .container-body-chat{
+        height: 100%;
+        min-height: 500px;
+        width: 80%;
+    }
+    .profile-body{
+        width: auto;
+    }
+    .container-users{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .user-card-friend{
+        width: 80%;
+    }
+    .user-card-friend-left{
+        justify-content: flex-start;
+        width: 20%;
+    }
+    .user-card-friend-right{
+        justify-content: flex-start;
+        width: 80%;
+    }
+    .input-link-friend{
+        font-size: 18px;
+    }
+    .container-messenge{
+        min-height: 600px;
+    }
+    .container-send-messenge{
+        margin-top: 20px;
+    }
+}
+@media(max-width: 450px){
+    .header-btn{
+        font-size: 14px;
+    }
+    .container-bar-left{
+        font-size: 14px;
+    }
+    .body-chat-header{
+        font-size: 16px;
+        justify-content: center;
+        align-items: center;
+    }
+    .body-chat-content{
+        font-size: 16px;
+    }
+    .container-header-btn{
+        justify-content: center;
+    }
+    .header-btn{
+        margin-right: 10px;
+    }
+    .body-chat-header-txt{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .body-container-bar{
+        width: 90%;
+    }
+    .btn-bar{
+        width: 210px;
+    }
+    .container-alert-left{
+        font-size: 12px;
+    }
+    .container-alert-right{
+        font-size: 12px;
+        margin-left: -10px;
+    }
+    .btn-alert{
+        font-size: 14px;
+    }
+    .btn-social-vk{
+        width: 55px;
+    }
+    .btn-social-yandex{
+        width: 55px;
+    }
+    .btn-social-github{
+        width: 55px;
+    }
+    .btn-social-google{
+        width: 55px;
+    }
+    .container-input-form-login{
+        padding: 5px;
+    }
+    .form-data-user{
+        margin-left: 10px;
+    }
+    .profile-content{
+        font-size: 14px;
+    }
+    .profile-content-status{
+        font-size: 14px;
+    }
+    .btn-add{
+        font-size: 14px;
+    }
+    .edit-input-profile{
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .btn-add-edit-profile{
+        font-size: 14px;
+    }
+    .input-link-friend{
+        font-size: 16px;
+    }
+    .btn-add-friend{
+        margin-top: 5px;
+        font-size: 14px;
+    }
+    .input-send-messenge{
+        font-size: 16px;
+    }
+    .message-text-edit{
+        font-size: 16px;
+        margin-bottom: 20px;
+        height: 60px;
+    }
+    .container-input-edit{
+        flex-direction: column;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-edit-message{
+        width: 80%;
+        height: 30px;
+    }
+}

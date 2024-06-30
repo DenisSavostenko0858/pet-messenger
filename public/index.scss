@@ -271,7 +271,7 @@ body{
     color: #EEEDEB;
     width: 200px;
     height: 550px;
-    margin-right: 60px;
+    margin-right: 40px;
     border-radius: 15px;
     padding: 10px;
 }
@@ -283,7 +283,7 @@ body{
     color: #EEEDEB;
     width: 200px;
     height: 550px;
-    margin-left: 60px;
+    margin-left: 40px;
     border-radius: 15px;
     padding: 10px;
 }
@@ -391,7 +391,8 @@ body{
     flex-direction: row;
     align-items: center;
     background-color: #747264;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     width: 99%;
     padding: 10px;
     border-radius: 15px;
@@ -470,6 +471,10 @@ body{
     width: 400px;
     justify-content: space-around;
 }
+.profile-content{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .btn-add{
     font-size: 18px;
     background-color: #E0CCBE;
@@ -489,6 +494,7 @@ body{
     display: flex;
     flex-direction: row;
     width: 99%;
+    flex-wrap: wrap;
     overflow: auto;
 }
 .user-card-friend{
@@ -532,6 +538,9 @@ body{
     border: none;
     font-size: 22px;
     font-family: 'Montserrat';
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     text-decoration: none;
 }
 .input-link-friend:hover{
@@ -593,7 +602,9 @@ body{
 }
 .container-messenge{
     height: 92%;
+    max-height: 600px;
     width: 100%;
+    flex-wrap: wrap;
     overflow: auto;
 }
 .input-send-messenge{
@@ -724,6 +735,7 @@ body{
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 80px;
 }
 .message-text-edit{
     display: flex;
