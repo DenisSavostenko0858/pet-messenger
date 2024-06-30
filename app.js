@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const req = require('express/lib/request');
 const router = require('./router/index_router');
-const PORT = 3000;
+const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -23,8 +23,7 @@ app.use(session({
     saveUninitialized: true
   }));
 app.use(router);
-app.listen(PORT, async function(){
+app.listen(port, async function(){
     await sequelize.sync();
-    console.log('База данных успешно синхронизирована');
-    console.log('Сервер запущен http://localhost:'+ PORT);
+    console.log('Сервер запущен http://localhost:'+ port);
 });
