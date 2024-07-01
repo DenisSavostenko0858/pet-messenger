@@ -21,6 +21,7 @@ exports.registerUsers = async (req, res, next) => {
             telephone: req.body.telephone,
             age: req.body.age,
             role: role,
+            friends: '[]'
           });
 
           req.session.userEmail = req.body.email;

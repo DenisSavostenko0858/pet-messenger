@@ -20,6 +20,7 @@ function passportFunctionYandex(passport){
             telephone: ' ',
             age: ' ',
             role: "user",
+            friends: '[]'
         });
 
         req.session.userName = newUser.username;
