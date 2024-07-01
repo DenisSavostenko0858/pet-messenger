@@ -1,5 +1,7 @@
 const express = require('express');
 const rout = express();
+const passport = require('passport');
+
 const renderPageController = require('../controllers/renderPages');
 const controllerRegister = require('../controllers/registerController');
 const loginController = require('../controllers/loginController');
@@ -15,6 +17,20 @@ rout.post('/register', controllerRegister.registerUsers);
 rout.get('/login', renderPageController.renderLoginPage);
 rout.post('/login', loginController.loginUser);
 rout.get('/logout', loginController.logout);
+
+rout.get("/auth/google", passport.authenticate("google", { scope: ["email", "profile"] }));
+rout.get("/auth/google/callback",
+    passport.authenticate("google", {
+      successRedirect: "/",
+      failureRedirect: "/login",
+    })
+);
+
+rout.get('/auth/yandex', passport.authenticate('yandex'), function(req, res){});
+rout.get('/auth/yandex/callback', passport.authenticate('yandex', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+});
 
 rout.get('/friend', renderPageController.renderFriendsPage);
 rout.post('/addfriend', friendController.addFriends);
