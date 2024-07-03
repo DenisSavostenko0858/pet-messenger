@@ -5,6 +5,7 @@ function passportFunctionGoogle (passport) {
     passport.serializeUser(async function (req, user, done) {
 
         const existingUser = await Users.findOne({ where: { email: user.emails[0].value} });
+        
         if (existingUser) {
                 req.session.userName = existingUser.username;
                 req.session.userEmail = existingUser.email;
@@ -43,7 +44,7 @@ function passportFunctionGoogle (passport) {
           passReqToCallback: true,
         },
         function (request, accessToken, refreshToken, profile, done) {
-          console.log(`Получили профиль от Google ${profile.name}`);
+          console.log(`Получили профиль от Google ${profile.displayName}`);
           return done(null, profile);
         }
       )

@@ -113,3 +113,11 @@ exports.renderEditMessagePage = async function(req, res) {
 
     res.render('editMessage', {userDate: userDate, messageData: messageData, userEmail, userName});
 };
+exports.renderSettingsPage = async function(req, res) {
+    const userEmail = req.session.userEmail;
+    const userName = req.session.userName;
+
+    const userDate = await Users.findOne({where: { email: userEmail} });
+
+    res.render('settingsPage', {userDate: userDate, userEmail, userName});
+};

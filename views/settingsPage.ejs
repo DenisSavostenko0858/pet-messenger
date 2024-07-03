@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/adaptive.css">
+    <link rel="stylesheet" href="/fonts/fonts.css">
+</head>
+<body>
+    <% if(userName) { %>
+        <div class="container-body-main">
+            <%- include('./partials/header.ejs') -%>
+            <div class="container-body-row">
+                <%- include('./partials/leftBar.ejs') -%>
+                <div class="container-body-chat">
+                    <%- include('./partials/blocks/settings.ejs') -%>
+                </div>
+                <%- include('./partials/rightBar.ejs') -%>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="error-message">
+            <div class="error-title">Ошибка сессии</div>
+            <div class="error-text"><p>Попробуйте <a href="/login">войти</a></p></div>
+        </div>
+    <% } %>        
+</body>
+</html>

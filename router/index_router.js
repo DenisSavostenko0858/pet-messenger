@@ -57,4 +57,6 @@ rout.post('/editmessage', messagesController.editMessage);
 rout.post('/editpage', renderPageController.renderEditMessagePage);
 rout.get('/editpage', renderPageController.renderEditMessagePage);
 
+rout.get('/settings', renderPageController.renderSettingsPage);
+
 module.exports = rout;

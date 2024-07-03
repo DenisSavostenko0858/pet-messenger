@@ -909,4 +909,36 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.container-btn-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 80%;
+  background-color: #747264;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.btn-settings {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  background-color: #3C3633;
+  color: #E0CCBE;
+  padding: 5px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn-settings:hover {
+  background-color: #E0CCBE;
+  color: #3C3633;
+  transition: 0.2s;
 }/*# sourceMappingURL=index.css.map */
